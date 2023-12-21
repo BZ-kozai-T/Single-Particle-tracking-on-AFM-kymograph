@@ -117,7 +117,7 @@ distance_from_center_list.append(dist)
 radius_list.append(rad)
 
 # save the kymograph image with the trajectory
-plt.plot(trajectory_list, color='k', linewidth=0.8, alpha=0.8)
+plt.plot(traj, color='k', linewidth=0.8, alpha=0.8)
 plt.imshow(kymo_image, cmap='jet') # vmin=-18, vmax=5
 plt.tick_params(left=False, right=False, labelleft=False, labelbottom=False, bottom=False)
 plt.axis('off')
