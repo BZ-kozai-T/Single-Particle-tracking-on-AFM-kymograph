@@ -34,15 +34,15 @@ def butter_lowpass_filter(signal, cutoff, length, order = 4):
     filtered_signal = filtfilt(b, a, signal)
     return filtered_signal
 
-def track_cp_kymo(dir, data_name, pixel_size, pixels, bottom_pixels, border, distance_from_center, cutoff_length):
-    kymo = skio.imread(dir + "/" + data_name + ".tiff", plugin="tifffile")
+def track_cp_kymo(inputdir, data_name, pixel_size, pixels, bottom_pixels, border, distance_from_center, cutoff_length):
+    kymo = skio.imread(inputdir + "/" + data_name + ".tiff", plugin="tifffile")
     nrows, nlines = kymo.shape
 
     # for lowpass filter
     length = 1/pixel_size
     cutoff = 1/cutoff_length
 
-    # vertical line
+    # in the fast-scan axis
     lowpass_filtered_list = np.zeros((nrows, nlines), dtype=np.float32)
     for iline in range(nlines):
         filtered_signal = butter_lowpass_filter(kymo[:, iline], cutoff, length, order = 4)
@@ -69,10 +69,6 @@ def track_cp_kymo(dir, data_name, pixel_size, pixels, bottom_pixels, border, dis
             local_maxima = None # no local maxima detected
             print("local maximum position:", local_maxima)
         y.append(local_maxima)
-
-    d = {"transition": y}
-    df = pd.DataFrame(d)
-    df.to_csv(dir + "/" + "tracking_" + data_name + ".csv", index=False)
 
     distance_center = np.arange(-distance_from_center, distance_from_center + 0.1, pixel_size)
     distance_list = []
