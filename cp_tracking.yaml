@@ -1,8 +1,11 @@
+"""""""""""
+enter the path to the folder where your kymograph data in .tiff is and all parameters required
+"""""""""""
 filenames:
   data_dir: "C:/Users/"  # absolute path to folder, also where to write output
+  data_name:: "kymograph" " data name without .tiff
 
 parameters:
-  scan_speed = 1.875 # in ms
   pixel_size = 1.0 # in nm/pixel
   radius_from_center = 40 # in nm
   top_pixels = 15 # define ROI for top pixel
