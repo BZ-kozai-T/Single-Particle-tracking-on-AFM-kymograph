@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 import skimage.io as skio
 from scipy.signal import iirfilter, filtfilt, find_peaks
+import matplotlib.pyplot as plt
 
 parser = argparse.ArgumentParser(description="Run particle tracking on AFM kymograph.")
 # expect yaml parameter file
@@ -17,14 +18,14 @@ parser.add_argument('-p',
 args = parser.parse_args()
 imgp = yaml.safe_load(args.prm)
 
-dir = imgp['filenames']['data_dir']
+inputdir = imgp['filenames']['data_dir']
 data_name = imgp['filenames']['data_name']
 
 pixel_size = imgp['parameters']['pixel_size']
-pixels = imgp['parameters']['top_pixels']
+distance_from_center = imgp['parameters']['distance_from_center']
+top_pixels = imgp['parameters']['top_pixels']
 bottom_pixels = imgp['parameters']['bottom_pixels']
 border = imgp['parameters']['border']
-distance_from_center = imgp['parameters']['distance_from_center']
 cutoff_length = imgp['parameters']['cutoff_length']
 
 def butter_lowpass_filter(signal, cutoff, length, order = 4):
@@ -95,5 +96,30 @@ def track_cp_kymo(dir, data_name, pixel_size, pixels, bottom_pixels, border, dis
             distance_radius = radius[y[j] - nrows//2]
             flipped_position_list.append(distance_radius)
 
-    return lowpass_filtered_list, y, distance_list, flipped_position_list, radius, distance_center, kymo
+    return y, distance_list, flipped_position_list, kymo
 
+trajectory_list = []
+distance_from_center_list = []
+radius_list = []
+
+# tracking particle on kymograph
+traj, dist, rad, kymo_image = track_cp_kymo(inputdir, data_name, pixel_size, top_pixels, bottom_pixels, border, distance_from_center, cutoff_length)
+
+trajectory_list.append(traj)
+distance_from_center_list.append(dist)
+radius_list.append(rad)
+
+# save the kymograph image with the trajectory
+plt.plot(trajectory_list, color='k', linewidth=0.8, alpha=0.8)
+plt.imshow(kymo_image, cmap='jet') # vmin=-18, vmax=5
+plt.tick_params(left=False, right=False, labelleft=False, labelbottom=False, bottom=False)
+plt.axis('off')
+plt.savefig(inputdir + "/" + "trajectory_overlaid_kymo.png", dpi=350)
+
+flatten_trajectory_list = [x for sublist in trajectory_list for x in sublist if x is not None]
+flatten_distance_from_center_list = [x for sublist in distance_from_center_list for x in sublist]
+flatten_radius_list = [x for sublist in radius_list for x in sublist]
+
+# save the trajectory in a csv file (pixel positions, distance from center in nm, and radius from center in nm)
+df_full = pd.DataFrame({"trajectory_position_in_pixel": flatten_trajectory_list, "distance_from_center_in_nm": flatten_distance_from_center_list, "radius_from_center_in_nm": flatten_radius_list})
+df_full.to_csv(inputdir + "/" + "trajectory.csv", index=False)
