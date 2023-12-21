@@ -1,0 +1,11 @@
+filenames:
+  data_dir: "C:/Users/"  # absolute path to folder, also where to write output
+
+parameters:
+  scan_speed = 1.875 # in ms
+  pixel_size = 1.0 # in nm/pixel
+  radius_from_center = 40 # in nm
+  top_pixels = 15 # define ROI for top pixel
+  bottom_pixels = 15 # define ROI for bottom pixel
+  border = -10 # local maxima will be detected above this height border.
+  cutoff_length = 6 # in nm
