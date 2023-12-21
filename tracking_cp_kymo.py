@@ -17,14 +17,14 @@ parser.add_argument('-p',
 args = parser.parse_args()
 imgp = yaml.safe_load(args.prm)
 
-inputdir = imgp['filenames']['data_dir']
+dir = imgp['filenames']['data_dir']
+data_name = imgp['filenames']['data_name']
 
-scan_speed = imgp['parameters']['scan_speed']
 pixel_size = imgp['parameters']['pixel_size']
-distance_from_center = imgp['parameters']['distance_from_center']
-top_pixels = imgp['parameters']['top_pixels']
+pixels = imgp['parameters']['top_pixels']
 bottom_pixels = imgp['parameters']['bottom_pixels']
 border = imgp['parameters']['border']
+distance_from_center = imgp['parameters']['distance_from_center']
 cutoff_length = imgp['parameters']['cutoff_length']
 
 def butter_lowpass_filter(signal, cutoff, length, order = 4):
@@ -95,5 +95,5 @@ def track_cp_kymo(dir, data_name, pixel_size, pixels, bottom_pixels, border, dis
             distance_radius = radius[y[j] - nrows//2]
             flipped_position_list.append(distance_radius)
 
-    return lowpass_filtered_list, y, distance_list, flipped_position_list, kymo, radius, distance_center
+    return lowpass_filtered_list, y, distance_list, flipped_position_list, radius, distance_center, kymo
 
