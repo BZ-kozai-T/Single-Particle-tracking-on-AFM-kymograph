@@ -3,7 +3,7 @@ enter the path to the folder where your kymograph data in .tiff is and all param
 """""""""""
 filenames:
   data_dir: "C:/Users/"  # absolute path to folder, also where to write output
-  data_name:: "kymograph" " data name without .tiff
+  data_name:: "kymograph" " data name without ".tiff"
 
 parameters:
   pixel_size = 1.0 # in nm/pixel
