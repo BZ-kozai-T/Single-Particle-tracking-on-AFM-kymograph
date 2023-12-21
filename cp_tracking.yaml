@@ -6,9 +6,9 @@ filenames:
   data_name:: "kymograph" " data name without ".tiff"
 
 parameters:
-  pixel_size = 1.0 # in nm/pixel
-  radius_from_center = 40 # in nm, distance from the center of the kymograph in the y-axis
-  top_pixels = 15 # tracking the feature from the defined pixel position
-  bottom_pixels = 15 # tracking the feature until the defined pixel position
-  border = -10 # local maxima will be detected above this height border.
-  cutoff_length = 6 # in nm, for low-pass filter
+  pixel_size: 1.0 # in nm/pixel
+  distance_from_center: 40 # in nm, distance from the center of the kymograph in the y-axis
+  top_pixels: 15 # tracking the feature from the defined pixel position
+  bottom_pixels: 15 # tracking the feature until the defined pixel position
+  border: -10 # local maxima will be detected above this height border.
+  cutoff_length: 6 # in nm, for low-pass filter
