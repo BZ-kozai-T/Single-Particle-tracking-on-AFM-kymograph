@@ -3,7 +3,8 @@ This is a tracking algorithm for single particle in the fast-scan axis of the ky
 Note: the x- and y-axis of the kymograph need to be scan-axis and time, repsectively. 
 
 To run the script:
-/1. Make sure that all packages listed in libraries.txt are installed.
-/2. Enter the parameters in the "cp_tracking.yaml" file.
-/3. Type, "cp_tracking_kymo.py -p cptracking.yaml" in Terminal
+
+1. Make sure that all packages listed in libraries.txt are installed.
+2. Enter the parameters in the "cp_tracking.yaml" file.
+3. Type, "cp_tracking_kymo.py -p cptracking.yaml" in Terminal
 
