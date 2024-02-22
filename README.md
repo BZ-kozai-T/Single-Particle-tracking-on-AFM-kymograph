@@ -17,5 +17,5 @@ In the test folder, there is an example kymograph data. You can test the code on
    
 The outputs will be two files:
 
-1. a csv file contaning pixel positions in the y-axis, nanometer-distance from the center of the kymograph in the y-axis, and radius from the center of the kymograph in the y-axis.
+1. a csv file contaning pixel positions in the y-axis (the top position is 0), nanometer distance from the center of the kymograph in the y-axis, and radius from the center of the kymograph in the y-axis.
 2. a png file of the kymograph overlaid trajectory 
