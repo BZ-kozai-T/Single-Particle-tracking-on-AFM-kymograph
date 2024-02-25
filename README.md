@@ -3,7 +3,7 @@ Python code to track a single particle in the fast-scan axis of the kymograph ge
 It should be noted that the kymograph needs to be prepared as a single image beforehand, and that the y- and x-axis of the kymograph are scan direction and time (left to right), repsectively. 
 This tracking algorithm was used to analyze the plug positions within nuclear pore complexes (NPCs) or Nsp1FG-functionalized DNA origami scaffolds measured by HS-AFM line scanning.
 
-The script has been tested on Python v3.9.5, Windows.
+The script has been tested on Python v3.9, Windows 11 v23H2 OS Build 22631.3007.
 
 To run the script:
 
@@ -14,6 +14,7 @@ To run the script:
 5. press "Enter" to run
 
 In the test folder, there is an example kymograph data. You can test the code on the data.
+The run time is around 5 seconds on the example data.
    
 The outputs will be two files:
 
