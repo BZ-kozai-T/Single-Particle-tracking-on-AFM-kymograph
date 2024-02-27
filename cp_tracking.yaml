@@ -1,6 +1,6 @@
 filenames:
   data_dir: "C:/Users/dir/"  # absolute path to folder where the data file is, and also to write output
-  data_name:: "data_name" " data file name without ".tiff"
+  data_name: "data_name" # data file name without ".tiff"
 
 parameters:
   pixel_size: 1.0 # in nm/pixel
