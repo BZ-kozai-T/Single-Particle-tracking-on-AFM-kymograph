@@ -7,9 +7,9 @@ The script has been tested on Python v3.9, Windows 11 v23H2 OS Build 22631.3007.
 
 To run the script:
 
-1. make sure that all libraries written in "requirements.txt" are installed into your working environment
+1. make sure that all libraries written in "requirements.txt" are installed into your Python virtual environment
 2. directly download the "cp_tracking_kymo.py" and "cp_tracking.yaml" files. This should be done immediately.
-3. enter the parameters required in the "cp_tracking.yaml" file. Instructions can be found after "#" in the yaml file.
+3. enter the parameters required in the "cp_tracking.yaml" file. Instructions can be found after "#" in the YAML file.
 4. make sure that the script, YAML and data files are located in the same directory.
 5. type the following command in Terminal: "cp_tracking_kymo.py -p cp_tracking.yaml"
 6. press "Enter" to run
@@ -19,5 +19,5 @@ The run time should be around 5 seconds on the example data.
    
 The outputs will be two files:
 
-1. a CSV file contaning pixel positions of the kymograph in the y-axis (the top position is 0), nanometer distance from the center of the kymograph in the y-axis, and radius from the center of the kymograph in the y-axis.
-2. a PNG file of the kymograph overlaid trajectory 
+1. a CSV file contaning pixel positions of the kymograph on the y-axis (with the top position as 0), nanometer distance from the center of the kymograph on the y-axis, and radius from the center of the kymograph on the y-axis.
+2. a PNG file showing the kymograph with an overlaid trajectory 
