@@ -8,7 +8,7 @@ filenames:
 parameters:
   pixel_size: 1.0 # in nm/pixel
   distance_from_center: 40 # in nm, distance from the center of the kymograph to one edge in the y-axis
-  top_pixels: 15 # tracking the feature from the defined pixel position in the y-axis
-  bottom_pixels: 15 # tracking the feature until the defined pixel position in the y-axis
+  top_pixels: 20 # tracking the feature from the defined pixel position in the y-axis
+  bottom_pixels: 60 # tracking the feature until the defined pixel position in the y-axis
   border: -10 # in nm. local maxima will be detected above this height border.
   cutoff_length: 6 # in nm, for low-pass filter. This susally should not be changed
