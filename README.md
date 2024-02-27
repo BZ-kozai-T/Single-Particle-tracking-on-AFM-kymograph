@@ -8,7 +8,7 @@ The script has been tested on Python v3.9, Windows 11 v23H2 OS Build 22631.3007.
 To run the script:
 
 1. make sure that all libraries written in "requirements.txt" are installed into your working environment
-2. directory download the "cp_tracking.py" and "cp_tracking.yaml" files. This should be done immediately.
+2. directly download the "cp_tracking.py" and "cp_tracking.yaml" files. This should be done immediately.
 3. enter the parameters required in the "cp_tracking.yaml" file. Instructions can be found in the yaml file.
 4. type the following command in Terminal: "cp_tracking_kymo.py -p cp_tracking.yaml"
 5. press "Enter" to run
